@@ -3,9 +3,11 @@ package Day13;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class D13TransparentOrigamiPt1 {
+public class D13TransparentOrigamiPt2 {
 
     private static final String PATH = "Day13/input_day_13.txt";
 
@@ -17,9 +19,19 @@ public class D13TransparentOrigamiPt1 {
                 case "y" -> sheet = foldHorizontal(Integer.parseInt(fold[1]), sheet);
                 case "x" -> sheet = foldVertical(Integer.parseInt(fold[1]), sheet);
             }
-            System.out.println(countDots(sheet));
+        //    System.out.println(countDots(sheet));
         }
         System.out.println();
+        printSheet(sheet);
+    }
+
+    private static void printSheet(char[][] sheet) {
+        for (int row = 0; row < sheet.length; row++) {
+            for (int col = 0; col < sheet[row].length; col++) {
+                System.out.print(sheet[row][col] == '#' ? " # " :" . ");
+            }
+            System.out.println();
+        }
     }
 
     private static char[][] foldVertical(int col, char[][] sheet) {
