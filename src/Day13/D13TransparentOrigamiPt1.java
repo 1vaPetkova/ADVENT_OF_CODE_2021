@@ -71,9 +71,9 @@ public class D13TransparentOrigamiPt1 {
 
     private static int countDots(char[][] sheet) {
         int dots = 0;
-        for (int row = 0; row < sheet.length; row++) {
-            for (int col = 0; col < sheet[row].length; col++) {
-                if (sheet[row][col] == '#') {
+        for (char[] chars : sheet) {
+            for (char ch : chars) {
+                if (ch == '#') {
                     dots++;
                 }
             }
