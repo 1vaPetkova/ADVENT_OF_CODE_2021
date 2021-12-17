@@ -27,7 +27,7 @@ public class D13TransparentOrigamiPt2 {
     private static void printSheet(char[][] sheet) {
         for (int row = 0; row < sheet.length; row++) {
             for (int col = 0; col < sheet[row].length; col++) {
-                System.out.print(sheet[row][col] == '#' ? " # " : " . ");
+                System.out.print(" " + sheet[row][col] + " ");
             }
             System.out.println();
         }
