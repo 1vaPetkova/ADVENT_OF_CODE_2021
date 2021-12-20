@@ -5,8 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class D13TransparentOrigamiPt1_v2 {
-
+public class D13TransparentOrigami_v2 {
 
     private static final String PATH = "Day13/input_day_13.txt";
 
@@ -18,9 +17,25 @@ public class D13TransparentOrigamiPt1_v2 {
                 case "y" -> dots = foldHorizontal(Integer.parseInt(fold[1]), dots);
                 case "x" -> dots = foldVertical(Integer.parseInt(fold[1]), dots);
             }
-            System.out.println(dots.size());
+      //      System.out.println(dots.size());
         }
-        System.out.println();
+        printDots(dots);
+    }
+
+    private static void printDots(Set<Dot> dots) {
+        int maxX = dots.stream().mapToInt(Dot::getX).max().orElse(0);
+        int maxY = dots.stream().mapToInt(Dot::getY).max().orElse(0);
+        for (int y = 0; y <= maxY; y++) {
+            for (int x = 0; x <= maxX; x++) {
+                Dot dot = new Dot(x, y);
+                if (dots.contains(dot)) {
+                    System.out.print("#");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     private static Set<Dot> foldVertical(int col, Set<Dot> dots) {
@@ -104,5 +119,15 @@ public class D13TransparentOrigamiPt1_v2 {
         public int hashCode() {
             return Objects.hash(x, y);
         }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
     }
+
+
 }
